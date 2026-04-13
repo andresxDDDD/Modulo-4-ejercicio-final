@@ -18,8 +18,7 @@ def menu_principal():
         elif rol == "2":
             menu_cliente()
         elif rol == "3":
-            print("\n¡Gracias por usar la app! Saliendo...")
-            break
+            return False
         else:
             print("\nOpción no válida. Intente de nuevo.")
             input()
@@ -33,8 +32,8 @@ def menu_cliente():
         print("2- Buscar productos:")
         print("3- Agregar productos al carro:")
         print("4- Ver carro:")
-        print("5- Vaciar carro:")
-        print("0- Salir:")
+        print("5- confirmar compra:")
+        print("6- <-- Volver al Menú Principal")
 
         opcion= int(input("Ingrese una opcion: "))
         return opcion
@@ -46,11 +45,11 @@ def menu_admin():
         print("==========================================")
         print("        PANEL DE ADMINISTRACIÓN")
         print("==========================================")
-        print("1. Ver inventario completo")
-        print("2. Agregar nuevo producto")
-        print("3. Actualizar stock/precio")
-        print("4. Eliminar producto")
-        print("5. <-- Volver al Menú Principal")
+        print("1- Ver inventario completo")
+        print("2- Agregar nuevo producto")
+        print("3- Actualizar productos")
+        print("4- Eliminar producto")
+        print("5- <-- Volver al Menú Principal")
         print("------------------------------------------")
         
         opcion = input("Seleccione una acción: ")
@@ -58,7 +57,7 @@ def menu_admin():
         if opcion == "5":
             break
         elif opcion in ["1", "2", "3", "4"]:
-            print(f"\nHas seleccionado la opción {opcion}. (Aquí irá la lógica)")
+            print(f"\nHas seleccionado la opción {opcion}.")
             input("\nPresione Enter para continuar...")
         else:
             print("\nOpción no válida. Intente de nuevo.")
