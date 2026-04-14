@@ -1,6 +1,7 @@
 class Usuario:
     def __init__(self,rut,nombre,apellido,tipo_usuario):
         self.rut = rut
+        self.nombre = nombre
         self.nombre = apellido
         self.tipo_usuario = tipo_usuario
 
