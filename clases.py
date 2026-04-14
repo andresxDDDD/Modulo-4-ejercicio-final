@@ -10,34 +10,37 @@ class Admin(Usuario):
     def __init__(self, rut, nombre, apellido, tipo_usuario):
         super().__init__(rut, nombre, apellido, tipo_usuario)
 
-    def listar_productos():
-        pass
-
-    def crear_producto():
-        pass
-    def actualizar_producto():
-        pass
-    def eliminar_producto():
-        pass
-    def guardar_catalogo():
-        pass    
-            
+    
 
 
 class Cliente(Usuario):
     def __init__(self, rut, nombre, apellido, tipo_usuario):
         super().__init__(rut, nombre, apellido, tipo_usuario)
 
-    def ver_catalogo():
-        pass
+    
 
-    def buscar_producto():
-        pass
 
-    def agregar_pro_carrito():
-        pass
+class Producto:
+    def __init__(self,id,nombre,categoria,precio):
+        self.id = id
+        self.nombre = nombre
+        self.categoria = categoria
+        self.precio = precio
 
-    def ver_carrito():
-        pass
 
-    def confirmar_compra():
+class Catalogo:
+    def __init__(self):
+        self.producto = []
+
+        
+    def agregar_producto(self,producto):
+        self.producto.append(producto)
+
+
+
+    def listar_catalogo(self):
+        for producto in self.productos:
+         print(producto)
+
+    def eliminar_producto():
+        pass
