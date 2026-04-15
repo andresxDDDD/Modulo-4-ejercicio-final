@@ -13,8 +13,18 @@ class Carrito():
          self.items["producto"]+= cantidad
       else:
          self.items["producto"]= cantidad
+
+   def ver_carrito(self):
+      total=0
+      for p,c  in self.items.items():
+         subtotal = p.precio * c
+         total += subtotal  
+         print(f"{p.nombre}- cantidad{c}-subtotal{subtotal}")   
+      print(f"total de la compra:{total}")    
             
    def calcular_total(self):
-        pass
+        return 
+
+
    def vaciar_carrito(self):
-     pass   
+     self.items.clear()  

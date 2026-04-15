@@ -11,3 +11,5 @@ class Producto:
     def __str__(self):
         return f" id: {self.id} -Nombre: {self.nombre} - Categoria: {self.categoria} - Precio:{self.precio}- Stock:{self.stock}"
     
+    def __repr__(self):
+        return self.nombre
