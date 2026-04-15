@@ -1,4 +1,5 @@
-
+from clases.producto import Producto
+import os
 class Catalogo:
     def __init__(self):
         self.producto = []
@@ -22,8 +23,18 @@ class Catalogo:
                 return p  
 
     def eliminar_producto(self,id):
-       p = self.buscar_por_id(id)
-       self.producto.remove(p)
+       producto_encontrado = None
+       for p in self.producto:
+            if p.id == id:
+               producto_encontrado = p
+            break
+    
+       if producto_encontrado:
+        self.producto.remove(producto_encontrado)
+        # IMPORTANTE: Guardamos los cambios en el archivo txt
+        self.guardar_catalogo()
+        return True
+       return False
         
     def guardar_catalogo(self,nombre_archivo="catalogo.txt"):
        try:
@@ -32,6 +43,29 @@ class Catalogo:
                 f.write(f"{p.id},{p.nombre},{p.categoria},{p.precio},{p.stock}\n")
        except Exception  as error:
           print(f"error en el archivo: {error}")
+
+
+    def abrir_catalogo(self,nombre_archivo="catalogo.txt"):
+       
+       try:
+        if os.path.exists(nombre_archivo): # Verificamos si el archivo existe
+            with open(nombre_archivo, "r") as f:
+                self.producto = [] # Limpiamos la lista actual para cargar los del archivo
+                for linea in f:
+                    # Quitamos el salto de línea y separamos por comas
+                    datos = linea.strip().split(",")
+                    if len(datos) == 5:
+                        id_p, nombre, cat, precio, stock = datos
+                        # Creamos el objeto Producto y lo añadimos a la lista
+                        nuevo_p = Producto(id_p, nombre, cat, precio, stock)
+                        self.producto.append(nuevo_p)
+           
+        else:
+            print("No se encontró un archivo previo, iniciando catálogo vacío.")
+       except Exception as error:
+               print(f"Error al cargar el archivo: {error}")
+       
+
            
 
              

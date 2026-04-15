@@ -10,8 +10,7 @@ def main():
     
     ejecutar= True
     while ejecutar:
-
-        ejecutar=menu_principal()
+     ejecutar=menu_principal()
 
 
 main()    

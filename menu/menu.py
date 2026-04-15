@@ -71,6 +71,7 @@ def menu_admin():
             print("==========================================")
             print("                CATALOGO")
             print("==========================================")
+            mi_productos.abrir_catalogo()
             mi_productos.listar_catalogo()
             input("\nPresione Enter para volver al menú...") 
 
@@ -84,10 +85,14 @@ def menu_admin():
             cat_prod = input("Ingrese categoria:")
             pre_prod = input("Ingrese precio:")
             stock_prod = input("Ingrese Stock del producto:")
-
-            producto= Producto(cod_prod,nom_prod,cat_prod,pre_prod,stock_prod)
-            mi_productos.agregar_producto(producto)
-            
+            print("==========================================")
+            opcion = input("\nPresione Y para guardar el producto:") 
+            if opcion == "Y":
+                producto= Producto(cod_prod,nom_prod,cat_prod,pre_prod,stock_prod)
+                mi_productos.agregar_producto(producto)
+                mi_productos.guardar_catalogo()
+            else:
+                print("Producto no guardado")
 
         elif opcion =="3":
             limpiar_pantalla()
@@ -100,10 +105,16 @@ def menu_admin():
             print("==========================================")
             print("           ELIMINAR PRODUCTO")
             print("==========================================")
+            mi_productos.abrir_catalogo()
+            mi_productos.listar_catalogo()
+            opcion = input("Escriba ID del producto a eliminar:")
+            mi_productos.eliminar_producto(opcion)
+
             input("\nPresione Enter para volver al menú...")
 
         elif opcion =="5":
-            input()
+            limpiar_pantalla()
+            break
         else:
             print("\nOpción no válida. Intente de nuevo.")
             input()
