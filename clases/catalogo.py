@@ -27,7 +27,7 @@ class Catalogo:
        for p in self.producto:
             if p.id == id:
                producto_encontrado = p
-            break
+               break
     
        if producto_encontrado:
         self.producto.remove(producto_encontrado)
@@ -83,6 +83,16 @@ class Catalogo:
         else:
             print("El id no coincide")
        return False
+      
+    def buscar_producto(self,msj:str):
+        encontrar= False
+    
+        for i in self.producto:
+             if msj.lower() in i.nombre.lower() or msj.lower() in i.categoria.lower():
+                print(f"ID: {i.id} - Nombre: {i.nombre} - Precio: ${i.precio} - Categoria: {i.categoria}")
+                encontrar = True
+        if not encontrar: 
+         print("productos no encontrado por favor revise nuestro catalogo:")        
            
 
              
