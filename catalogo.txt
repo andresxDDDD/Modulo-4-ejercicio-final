@@ -1,1 +1,1 @@
-1,calcetines,ropa,12000,-30
+1,calcetines,vestuario,10000,1

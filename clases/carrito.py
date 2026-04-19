@@ -71,9 +71,7 @@ class Carrito():
 
 
    def ver_carrito(self):
-      print("==========================================")
-      print("           CARRITO DE COMPRAS")
-      print("==========================================")
+
       if not self.items:
             print("El carrito está vacío.")
             return
@@ -100,13 +98,13 @@ class Carrito():
             total = 0
             ahora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             with open("ordenes.txt", "a") as archivo:
-                archivo.write(f"--- ORDEN DE COMPRA: {ahora} ---\n")
+                archivo.write(f"--- ORDEN DE COMPRA: {ahora}")
                 
                 for p, c in self.items.items():
-                    nuevo_stock = int(p.stock) - int(c)
-                    p.stock = str(nuevo_stock)  
-                    precio = int(p.precio)
-                    cantidad = int(c)
+                    nuevo_stock = (p.stock) - (c)
+                    p.stock = str(nuevo_stock) 
+                    precio = (p.precio)
+                    cantidad = (c)
                     subtotal = precio * cantidad
                     total += subtotal
                     

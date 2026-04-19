@@ -1,4 +1,4 @@
-import os
+""" import os
 from clases.producto import Producto 
 from clases.catalogo import Catalogo
 
@@ -142,3 +142,4 @@ def menu_admin():
             print("\nOpción no válida. Intente de nuevo.")
             input()
 
+ """

@@ -55,7 +55,7 @@ class Catalogo:
                     datos = linea.strip().split(",")
                     if len(datos) == 5:
                         id_p, nombre, cat, precio, stock = datos
-                        nuevo_p = Producto(id_p, nombre, cat, precio, stock)
+                        nuevo_p = Producto(id_p, nombre, cat, int(precio), int(stock))
                         self.producto.append(nuevo_p)
            
         else:

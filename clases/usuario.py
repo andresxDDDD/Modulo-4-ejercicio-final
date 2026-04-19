@@ -74,7 +74,7 @@ class Admin(Usuario):
                 else:
                  print("Producto no guardado")
 
-                input("\nPresione Enter para continuar...")
+                input("Presione Enter para volver al menu...")
             except ValueError:
                 # Se ejecuta si el usuario ingresa texto donde debe ir un número
                 print("ERROR: El precio y el stock deben ser números enteros.")
@@ -164,6 +164,8 @@ class Cliente(Usuario):
     def __init__(self, rut, nombre, apellido, tipo_usuario):
         super().__init__(rut, nombre, apellido, tipo_usuario)
         self.carrito = Carrito()
+
+
     def menu_cliente(self,mi_productos):
        mi_productos.abrir_catalogo()
        while True:
@@ -180,16 +182,25 @@ class Cliente(Usuario):
             opcion= input("Ingrese una opcion: ")
             if opcion == "1":
                 limpiar_pantalla()
+                print("=========================================================================")
+                print("                                 CATALGOGO")
+                print("=========================================================================")
                 mi_productos.listar_catalogo()
-                input("\nPresione Enter para volver al menu...")
+                input("Presione Enter para volver al menu...")
             elif opcion =="2":
                 limpiar_pantalla()
+                print("=============================================================================")
+                print("                                BUSCAR PRODUCTOS")
+                print("=============================================================================")
                 msj=input("Ingrese Nombre o categoria del producto a buscar:")
                 mi_productos.buscar_producto(msj)
                 input("\nPresione Enter para vover al menu ...")
 
             elif opcion =="3":
                 limpiar_pantalla()
+                print("=============================================================================")
+                print("                            AGREGAR PRODUCTOS AL CARRO")
+                print("=============================================================================")
                 msj=input("Ingrese Nombre o categoria del producto a buscar:")
                 mi_productos.buscar_producto(msj)
                 op_1 = input("Ingresa ID del producto a agregar:")
@@ -205,20 +216,30 @@ class Cliente(Usuario):
                     input("\nPresione Enter para vover al menu ...")
             elif opcion =="4": 
                 limpiar_pantalla()
+                print("==============================================")
+                print("               TU CARRO DE COMPRAS")
+                print("=============================================")
                 self.carrito.ver_carrito()     
                 input("\nPresione Enter para vover al menu ...")
             elif opcion=="5":
                 limpiar_pantalla
+                
+                print("==============================================")
+                print("               CONFIRMA TU COMPRA")
+                print("=============================================")
                 self.carrito.ver_carrito()
                 op_compra= input("Para confirmar su compra presione Y:") 
                 if op_compra== "Y":
                     self.carrito.confirmar_compra(mi_productos)   
                     input("\nPresione Enter para vover al menu ...")
             elif opcion == "6":
+                limpiar_pantalla()
                 if len(self.carrito.items) > 0:
-                    print("Los productos del carrito se borraran:")
-                    self.carrito.devolver_stock_
-                break
+                     op_salir = input("Hay productos en el carro si desea salir presione Y:")
+                     if op_salir == "Y":
+                          self.carrito.devolver_stock_
+                     else:
+                      break
 
 
 
